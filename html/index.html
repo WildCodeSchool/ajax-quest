@@ -1,26 +1,50 @@
-
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Ajax quest</title>
-    <link rel="icon" type="image/png" href="favicon.png"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel='stylesheet' href='https://unpkg.com/bulma@0.7.5/css/bulma.min.css'>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Ajax quest</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel='stylesheet' href='https://unpkg.com/bulma@0.7.5/css/bulma.min.css'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <style>
+    .navbar {
+      margin-bottom: 2em;
+    }
+  </style>
 </head>
+
 <body>
   <section class="section">
     <div class="container">
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div id="navbarBasicExample" class="navbar-menu">
+          <a class="navbar-item">
+            #1 HTML/Fetch
+          </a>
+
+          <a class="navbar-item" href="../json-fetch/">
+            #2 JSON/Fetch
+          </a>
+
+          <a class="navbar-item" href="../json-axios/">
+            #3 JSON/axios
+          </a>
+
+        </div>
+      </nav>
       <h1 class="title">Ajax examples</h1>
       <h2 class="subtitle">#1 - Get additional HTML content with Fetch</h2>
 
       <div class="content">
-        <p>This <code>div</code> is part of the initial page. <strong>More content will be shown in a few seconds.</strong></p>
-        <p>Open your developer tools and <strong>get to the "Network" tab</strong>: you should see a line showing <code>additional-content.html</code>.</p>
+        <p>This <code>div</code> is part of the initial page. <strong>More content will be shown in a few
+            seconds.</strong></p>
+        <p>Open your developer tools and <strong>get to the "Network" tab</strong>: you should see a line showing
+          <code>additional-content.html</code>.</p>
         <p>Reload the page if it went too fast!</p>
       </div>
       <div class="content" id="additional-content">
@@ -44,7 +68,8 @@
     // setTimeout allows us to call the above function after a preset delay ("timeout")
     // specified in milliseconds
     setTimeout(fetchAdditionalHTML, 3000);
-  
+
   </script>
 </body>
+
 </html>

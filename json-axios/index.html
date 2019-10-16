@@ -12,7 +12,11 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
     integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <style>
-    #github-profile {
+    .navbar {
+      margin-bottom: 2em;
+    }
+
+    #pokemon {
       margin-top: 3em;
     }
   </style>
@@ -21,11 +25,29 @@
 <body>
   <section class="section">
     <div class="container">
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div id="navbarBasicExample" class="navbar-menu">
+          <a class="navbar-item" href="../html/">
+            #1 HTML/Fetch
+          </a>
+
+          <a class="navbar-item" href="../json-fetch/">
+            #2 JSON/Fetch
+          </a>
+
+          <a class="navbar-item">
+            #3 JSON/axios
+          </a>
+
+        </div>
+      </nav>
       <h1 class="title">Ajax examples</h1>
-      <h2 class="subtitle">#3 - Get JSON data with <a target="_blank" href="https://github.com/axios/axios">axios</a></h2>
+      <h2 class="subtitle">#3 - Get JSON data with <a target="_blank" href="https://github.com/axios/axios">axios</a>
+      </h2>
 
       <div class="content">
-        <p>Same as the previous example, with axios and a <a target="_blank" href="https://pokeapi.co/">different API</a>.</p>
+        <p>Same as the previous example, with axios and a <a target="_blank" href="https://pokeapi.co/">different
+            API</a>.</p>
         <p></p>
       </div>
       <div class="content" id="pokemon">
@@ -35,7 +57,8 @@
   </section>
 
   <!-- We need to load axios first! -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"
+    integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
   <script>
     // This function loads pokemon data from the Pokemon API
     function fetchPokemonJSON() {
