@@ -1,83 +1,86 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Ajax quest</title>
+		<link rel="icon" type="image/png" href="favicon.png" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/bulma@0.7.5/css/bulma.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+			integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+			crossorigin="anonymous"
+		/>
+		<style>
+			.navbar {
+				margin-bottom: 2em;
+			}
 
-  <title>Ajax quest</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-  <link rel='stylesheet' href='https://unpkg.com/bulma@0.7.5/css/bulma.min.css'>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <style>
-    .navbar {
-      margin-bottom: 2em;
-    }
+			#github-profile {
+				margin-top: 3em;
+			}
+		</style>
+	</head>
 
-    #github-profile {
-      margin-top: 3em;
-    }
-  </style>
-</head>
+	<body>
+		<section class="section">
+			<div class="container">
+				<nav class="navbar" role="navigation" aria-label="main navigation">
+					<div id="navbarBasicExample" class="navbar-menu">
+						<a class="navbar-item" href="../html/"> #1 HTML/Fetch </a>
 
-<body>
-  <section class="section">
-    <div class="container">
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div id="navbarBasicExample" class="navbar-menu">
-          <a class="navbar-item" href="../html/">
-            #1 HTML/Fetch
-          </a>
+						<a class="navbar-item"> #2 JSON/Fetch </a>
 
-          <a class="navbar-item">
-            #2 JSON/Fetch
-          </a>
+						<a class="navbar-item" href="../json-axios/"> #3 JSON/axios </a>
+					</div>
+				</nav>
+				<h1 class="title">Ajax examples</h1>
+				<h2 class="subtitle">#2 - Get JSON data with Fetch</h2>
 
-          <a class="navbar-item" href="../json-axios/">
-            #3 JSON/axios
-          </a>
+				<div class="content">
+					<p>
+						<strong>Keep your "Network tab" open!</strong> Almost the same,
+						except this time, we fetch JSON data from the GitHub API.
+					</p>
+					<p></p>
+				</div>
+				<div class="content" id="github-profile"></div>
+			</div>
+		</section>
 
-        </div>
-      </nav>
-      <h1 class="title">Ajax examples</h1>
-      <h2 class="subtitle">#2 - Get JSON data with Fetch</h2>
+		<script>
+			// This function loads profile data from GitHub
+			function fetchGitHubProfileJSON() {
+				// Feel free to download this HTML and edit it, to use your own GitHub username
+				const username = 'defunkt';
+				const url = `https://api.github.com/users/${username}`;
+				fetch(url)
+					.then((response) => response.json()) // We now use response.json() instead of response.text()
+					.then((profile) => {
+						console.log('data decoded from JSON:', profile);
 
-      <div class="content">
-        <p><strong>Keep your "Network tab" open!</strong> Almost the same, except this time, we fetch JSON data from the
-          GitHub API.</p>
-        <p></p>
-      </div>
-      <div class="content" id="github-profile">
-      </div>
-    </div>
-
-  </section>
-
-  <script>
-    // This function loads profile data from GitHub
-    function fetchGitHubProfileJSON() {
-      // Feel free to download this HTML and edit it, to use your own GitHub username
-      const username = 'defunkt';
-      const url = `https://api.github.com/users/${username}`;
-      fetch(url)
-        .then(response => response.json()) // We now use response.json() instead of response.text()
-        .then(profile => {
-          console.log('data decoded from JSON:', profile);
-
-          // Build a block of HTML
-          const profileHtml = `
+						// Build a block of HTML
+						const profileHtml = `
             <p><strong>${profile.name}</strong></p>
             <img src="${profile.avatar_url}" />
           `;
-          document.querySelector('#github-profile').innerHTML = profileHtml;
-        });
-    }
+						document.querySelector('#github-profile').innerHTML = profileHtml;
+					});
+			}
 
-    fetchGitHubProfileJSON();
-
-  </script>
-</body>
-
+			fetchGitHubProfileJSON();
+		</script>
+	</body>
 </html>
